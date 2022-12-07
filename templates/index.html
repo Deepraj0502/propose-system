@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Deepraj App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+{% load static %}
+<link rel="stylesheet" href="{% static 'index.css' %}">
+<body>
+  <div class='outer'>
+    {% if sum %}
+    <div class='name-tag'>
+      <h1>Score: {{sum}}</h1>
+    </div>
+    {%endif%}
+    <div class='question-form'>
+      <form method="POST">
+        {% csrf_token %}
+        <h2 class='q1'>Question 1</h2>
+        <p class='ques1'>Deepaj's post in TPC ?</p>
+        {% if sum%}
+        <input type="text" name="ans1"  class='inp1' placeholder='Ans: technical coordinator'></input>
+        <h2 class='q1'>Question 2</h2>
+        <p class='ques1'>Mummy calls me at home with name ?</p>
+        <input type="text" name="ans2"  class='inp1' placeholder='Ans: pillu'></input>
+        <h2 class='q1'>Question 3</h2>
+        <p class='ques1'>Deepaj's favorate person ?</p>
+        <input type="text" name="ans3"  class='inp1' placeholder='Ans: mummy'></input>
+        {%else%}
+        <input type="text" name="ans1"  class='inp1' placeholder='Enter answer...'></input>
+        <h2 class='q1'>Question 2</h2>
+        <p class='ques1'>Mummy calls me at home with name ?</p>
+        <input type="text" name="ans2"  class='inp1' placeholder='Enter answer...'></input>
+        <h2 class='q1'>Question 3</h2>
+        <p class='ques1'>Deepaj's favorate person ?</p>
+        <input type="text" name="ans3"  class='inp1' placeholder='Enter answer...'></input>
+        {%endif%}
+        <button type="submit" class='sub-btn'>Submit</button>
+      </form>
+    </div>
+    {% if sum %}
+    <div class='shayari'>
+      <p class='p1'>Nigaahon mein jabse tum rehne lagi ho😍..</p>
+      <p class='p2'>Mere Dil mein ajib Umange machalne lagi hai💖..</p>
+      <p class='p3'>Jab bhi akela mehsus karta hu tumhari tasveer dekh leta hu🥺..</p>
+      <p class='p4'>Tumhare chehre ko dekh kr aab meri mohabbat bhi Muskurane lagi haii😘💕</p>
+    </div>
+    <div class='gif'>
+      <img src="{% static 'heart.gif' %}" alt='heart' class='gif1'></img>
+      <img src="{% static 'infinity.gif' %}" alt='infinity' class='gif2'></img>
+    </div>
+    {% endif%}
+  </div>
+</body>
+</html>
